@@ -10,7 +10,7 @@ class VariableFilesystemLoader extends ExtendedFilesystemLoader implements Musta
 
     public function __construct($baseDirs, array $aliases = array())
     {
-        Mustache_Loader_FilesystemLoader::__construct($baseDirs, array());
+        ExtendedFilesystemLoader::__construct($baseDirs, array());
         $this->setTemplates($aliases);
     }
 
