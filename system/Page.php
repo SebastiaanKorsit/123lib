@@ -1,7 +1,7 @@
 <?php
 
-require_once 'layout/Template.php';
-require_once 'system/Router.php';
+require_once '123lib/layout/Template.php';
+require_once '123lib/system/Router.php';
 
 class Page {
     private $template;

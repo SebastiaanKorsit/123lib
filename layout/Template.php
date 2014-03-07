@@ -1,9 +1,9 @@
 <?php
 
-require_once 'layout/mustache/autoload.php';
+require_once '123lib/layout/mustache/autoload.php';
 
-require_once 'mustache/VariableFilesystemLoader.php';
-require_once 'mustache/ExtendedFilesystemLoader.php';
+require_once '123lib/layout/mustache/VariableFilesystemLoader.php';
+require_once '123lib/layout/mustache/ExtendedFilesystemLoader.php';
 
 class Template {
     

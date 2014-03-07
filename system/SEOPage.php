@@ -1,6 +1,6 @@
 <?php
 
-require_once 'system/Page.php';
+require_once '123lib/system/Page.php';
 
 class SEOPage extends Page {    
     private $depencies;

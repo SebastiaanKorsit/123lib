@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Request.php';
+require_once '123lib/api/Request.php';
 
 class Product {
     public $id, $value, $price, $stock, $color, $brand, $country, $name, $image;

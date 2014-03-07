@@ -1,5 +1,6 @@
 <?php
-require_once 'system/Url.php';
+
+require_once '123lib/system/Url.php';
 
 class Router {
     private $map = array();
