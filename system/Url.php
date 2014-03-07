@@ -89,7 +89,7 @@ class Url {
     }
 
     function isLocal() {
-        return $this->scheme."://".$this->host == Server::getHost();
+        return $this->scheme."://".$this->host == Router::getHost();
     }
 
     public static function compare($a, $b)

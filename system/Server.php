@@ -4,20 +4,13 @@ require_once '123lib/system/Url.php';
 class Server {
     private $router;
     
-    public function __construct($host, $router) {
+    public function __construct($router) {
         $this->router = $router;
-        Server::$host = $host;
-    }
-    
-    private static $host;
-    
-    public static function getHost() {
-        return new Url(Server::$host);
     }
     
     public function request($path, $scope) {
         
-        $page = $router->resolve(new Url($path));
+        $page = $this->router->resolve(new Url($path));
 
         if ($page != null) { 
 
@@ -27,7 +20,7 @@ class Server {
 
             header('HTTP/1.0 404 Not Found');
 
-            echo $router->otherwise()->render($scope);
+            echo $this->router->otherwise()->render($scope);
         }
     }
 }

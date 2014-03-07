@@ -5,6 +5,10 @@ require_once '123lib/system/Url.php';
 class Router {
     private $map = array();
     
+    public function __construct($host) {
+        Router::$host = $host;
+    }
+    
     public function when($url, $pageCallback) {
         $this->map[$url] = $pageCallback;
     }
@@ -16,8 +20,8 @@ class Router {
     public function resolve($url) {
         Router::$currentPage = $url;
         
-        if (array_key_exists($url, $this->map)) {
-            $page = $this->map[$url]();
+        if (array_key_exists((string) $url, $this->map)) {
+            $page = $this->map[(string) $url]();
             $page->setLocation($url);
             
             return $page;
@@ -26,21 +30,23 @@ class Router {
         }
     }
     
+    public function otherwise() {
+        exit();
+    }
+    
     /*
         Info
     */
     private static $currentPage;
     
-    public function otherwise() {
-        exit();
-    }
-    
     public static function getCurrentPage() {
         return Router::$currentPage;
     }
     
+    private static $host;
+    
     public static function getHost() {
-        return new Url($_SERVER['REQUEST_URI']);
+        return Router::$host;
     }
     
     static function redirect($url, $permanent = false) {
