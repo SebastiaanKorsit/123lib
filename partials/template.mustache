@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ page.getTitle }} - 123giftcard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="http://123giftcard.nl/template/css/stylesheet.css" type="text/css" />
+        {{> partial_head }}
+    </head>
+    <body>
+        <nav class="menu">
+            <div class="container">
+                <div class='grid grid-responsive'>
+                    <div class="col col-2">
+                        <img src="http://123giftcard.nl/template/png/logo-medium.png" id='logo' alt="123code logo">
+                    </div>
+                    <div class='col col-8 font-align-center'>
+                        {{# menu }}
+                        <a href="{{ getLocation }}" class="{{ isActive }}">
+                            {{ getName }}
+                        </a>
+                        {{/ menu }}
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <header class="container">
+            <div class='grid grid-responsive'>
+                <div class="col col-2">
+                    {{> partial_logo }}
+                </div>
+
+                <div class='col col-8 font-align-center'>
+                    <a href="#" class="font font-color-dark"><i class="font-size-medium font-color-orange icon icon-lightning"></i> Alle producten uit ons assortiment worden <span class="font font-weight-bold font-color-orange">direct</span> geleverd</a>
+                </div>
+
+                <div class='col col-2 font-align-center'>
+                    <a href='http://123giftcard.nl/winkelwagen' class='button button-green'>Winkelwagen <span class='well well-color-white' style='margin-left: 10px; margin-right: -10px;'>{{ cart.count }}</span></a>
+                </div>
+            </div>
+            <ol class='breadcrumb'>
+                <li>
+                    <a href='/'>
+                        <i class='icon icon-home icon-align-baseline'></i>
+                    </a>
+                </li>
+                {{# breadcrumb }}
+                <li>
+                    <a href='{{ getLocation }}'>{{ getName }}</a>
+                </li>
+                {{/ breadcrumb }}
+            </ol>
+        </header>
+        <!-- start partial entry -->
+        <div id="entry">
+            {{> partial_entry }}
+        </div>
+        <!-- end partial entry -->
+        <footer>
+            <div class="container grid grid-responsive">
+                <div class='col col-3'>
+                    <h3>Voorwaarden</h3>
+                    <ul class='list'>
+                        <li>
+                            <a href='http://123giftcard.nl/voorwaarden'>Algemene voorwaarden</a>
+                        </li>
+                        <li>
+                            <a href='http://123giftcard.nl/privacy'>Privacy beleid</a>
+                        </li>
+                        <li>
+                            <a href='http://123giftcard.nl/disclaimer'>Disclaimer</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class='col col-3'>
+                    <h3>Navigatie</h3>
+                    <ul class='list'>
+                        {{# menu }}
+                        <li>
+                            <a href="{{ getLocation }}">
+                            {{ getName }}
+                            </a>
+                        </li>
+                        {{/ menu }}
+                        <li>
+                            <a href='sitemap'>Sitemap</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class='col col-3'>
+                    <h3>Contact & Support</h3>
+                    <ul class='list'>
+                        <li><a href='http://123giftcard.nl/klantenservice'>Klantenservice</a></li>
+                    </ul>
+                </div>
+                <div class='col col-3'>
+                    <img src='http://123giftcard.nl/template/png/logo-large.png' alt='groot 123giftcard logo'>
+                </div>
+            </div>
+            <div id='copyright'>
+                ©2014 Korsit - Alle genoemde prijzen zijn inclusief BTW<br />
+                The productnames used on this website are for identification purposes only.
+                All trademarks and registered trademarks are the property of their respective owners.
+            </div>
+        </footer>
+    </body>
+</html>

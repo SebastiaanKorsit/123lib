@@ -1,0 +1,54 @@
+<div class='container'>
+    <div class='grid grid-responsive'>
+        <div class="col col-2">
+            <nav id='toolbar'>
+                <a href='#'>Alles</a>
+                <a href='#'>Prepaid</a>
+                <a href='#'>Cadeaukaarten</a>
+                <a href='#'>Abbonnementen</a>
+                <h3>
+                    Categorie
+                </h3>
+                <a href='http://123giftcard.nl/apps'>Apps</a>
+                <a href='http://123giftcard.nl/film'>Films & Series</a>
+                <a href='http://123giftcard.nl/games'>Games</a>
+                <a href='http://123giftcard.nl/muziek'>Muziek</a>
+                <h3>
+                    Merken
+                </h3>
+                <a href='http://123googleplaygiftcard.nl'>Google Play</a>
+                <a href='http://123ituneskaart.nl'>iTunes</a>
+                <a href='http://123spotifygiftcard.nl'>Spotify</a>
+                <!-- start partial toolbar -->
+                {{> partial_toolbar }}
+                <!-- end partial toolbar -->
+            </nav>
+        </div>
+        <div class='col col-8'> 
+            <!-- start partial main -->
+            <div>
+                {{> partial_main }}
+            </div>
+            <!-- end partial main -->
+        </div>
+        <div class='col col-2'>
+            <aside id='sidebar'>
+                <div class='box box-border'>
+                    <h2>Service</h2>
+                </div>
+                <div class='box box-border'>
+                    <h2>Alleen bij ons</h2>
+                    <ul class='list list-style-feature font font-color-light'>
+                        <li>Direct geleverd</li>
+                        <li>Altijd geopend</li>
+                        <li>Laagste prijs</li>
+                        <li>Groot assortiment</li>
+                    </ul>
+                </div>
+                <!-- start partial sidebar -->
+                {{> partial_toolbar }}
+                <!-- end partial sidebar -->
+            </aside>
+        </div>
+    </div>
+</div>
