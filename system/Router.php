@@ -5,7 +5,7 @@ require_once '123lib/system/Url.php';
 class Router {
     private $map = array();
     
-    public function route($url, $pageCallback) {
+    public function when($url, $pageCallback) {
         $this->map[$url] = $pageCallback;
     }
     
@@ -31,6 +31,9 @@ class Router {
     */
     private static $currentPage;
     
+    public function otherwise() {
+        exit();
+    }
     
     public static function getCurrentPage() {
         return Router::$currentPage;

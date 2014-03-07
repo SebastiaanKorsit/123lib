@@ -4,7 +4,7 @@ require_once 'autoload.php';
 
 require_once '123lib/layout/mustache/ExtendedFilesystemLoader.php';
 
-class VariableFilesystemLoader extends Mustache_Loader_FilesystemLoader implements Mustache_Loader_MutableLoader
+class VariableFilesystemLoader extends ExtendedFilesystemLoader implements Mustache_Loader_MutableLoader
 {
     private $aliases = array();
 
