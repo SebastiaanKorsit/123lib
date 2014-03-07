@@ -10,7 +10,7 @@ class Url {
     public $query;
     public $minify;
 
-    function __construct($url, $minify = false) {
+    function __construct($url, $minify = true) {
         $this->minify = $minify;
         $this->parse($url);
 
