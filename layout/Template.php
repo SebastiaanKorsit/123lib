@@ -1,9 +1,9 @@
 <?php
 
-require_once 'mustache.php-2.5.1/src/Mustache/Autoloader.php';
-Mustache_Autoloader::register();
+require_once 'layout/mustache/autoload.php';
 
-require_once 'FileLoader.php';
+require_once 'mustache/VariableFilesystemLoader.php';
+require_once 'mustache/ExtendedFilesystemLoader.php';
 
 class Template {
     
@@ -18,11 +18,15 @@ class Template {
     }
     
     public function render($scope = array()) {
+        $baseDirs = array(
+            dirname(__FILE__).'/partials',
+            dirname(__FILE__).'/../../../views',
+        );
         
         $this->m = new Mustache_Engine(
             array(
-                'loader' => new Mustache_Loader_FilesystemLoader(dirname(__FILE__) . '/../../views'),
-                'partials_loader' => new FileLoader(dirname(__FILE__) . '/../../views'),
+                'loader' => new ExtendedFilesystemLoader($baseDirs),
+                'partials_loader' => new VariableFilesystemLoader($baseDirs),
                 'partials' => $this->partials,
             )
         );

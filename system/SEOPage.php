@@ -1,7 +1,6 @@
 <?php
 
-require_once 'Page.php';
-require_once 'FileLoader.php';
+require_once 'system/Page.php';
 
 class SEOPage extends Page {    
     private $depencies;

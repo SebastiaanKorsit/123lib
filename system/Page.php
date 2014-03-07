@@ -1,7 +1,7 @@
 <?php
 
-require_once 'Template.php';
-require_once 'Router.php';
+require_once 'layout/Template.php';
+require_once 'system/Router.php';
 
 class Page {
     private $template;

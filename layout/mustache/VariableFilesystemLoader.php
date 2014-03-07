@@ -1,17 +1,16 @@
 <?php
 
-require_once 'mustache.php-2.5.1/src/Mustache/Autoloader.php';
-Mustache_Autoloader::register();
+require_once 'autoload.php';
 
+require_once 'ExtendedFileLoader.php';
 
-
-class FileLoader extends Mustache_Loader_FilesystemLoader implements Mustache_Loader_MutableLoader
+class VariableFilesystemLoader extends Mustache_Loader_FilesystemLoader implements Mustache_Loader_MutableLoader
 {
     private $aliases = array();
 
-    public function __construct($baseDir, array $aliases = array())
+    public function __construct($baseDirs, array $aliases = array())
     {
-        Mustache_Loader_FilesystemLoader::__construct($baseDir, array());
+        Mustache_Loader_FilesystemLoader::__construct($baseDirs, array());
         $this->setTemplates($aliases);
     }
 
@@ -34,3 +33,4 @@ class FileLoader extends Mustache_Loader_FilesystemLoader implements Mustache_Lo
         $this->aliases[$name] = $template;
     }
 }
+

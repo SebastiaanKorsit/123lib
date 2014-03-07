@@ -1,5 +1,5 @@
 <?php
-require_once 'Url.php';
+require_once 'system/Url.php';
 
 class Router {
     private $map = array();
