@@ -1,5 +1,5 @@
 <?php
-    require_once "Server.php";
+    require_once "Router.php";
     require_once "Filter.php";
     
     class Url {
@@ -15,7 +15,7 @@
             
             if ($this->host == "") {
                 
-                $prefix = Server::getHost();
+                $prefix = Router::getHost();
                 
                 if (strpos($url, "/") != 0) { // $this->path veranderd naar $url. Mogelijke error trap
                     $prefix .= "/";
@@ -50,10 +50,7 @@
         }
         
         static function current() {
-            $str = $_SERVER['REQUEST_URI'];
-            
-            $url = new Url($str);
-            return $url;
+            return Router::getCurrentPage();
         }
         
         function __toString() {

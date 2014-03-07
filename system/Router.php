@@ -1,4 +1,5 @@
 <?php
+require_once 'Url.php';
 
 class Router {
     private $map = array();
@@ -35,6 +36,6 @@ class Router {
     }
     
     public static function getHost() {
-        return 'http://123ituneskaart.nl';
+        return new Url($_SERVER['REQUEST_URI']);
     }
 }

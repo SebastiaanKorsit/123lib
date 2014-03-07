@@ -1,15 +1,15 @@
 <?php
 
-require_once "Filter.php";
-require_once "system/Server.php";
+require_once "utils/Filter.php";
+require_once "system/Router.php";
 require_once "system/Url.php";
 
 class Response {
     
     private $data = array("status" => true);
     
-    public function validate($default_url = "/home/?action=oops") {
-        $param = new \Filter($_GET);
+    public function validate($default_url = "/fout") {
+        $param = new Filter($_GET);
         if ($param->exists("forward_url")) {
             /* @var $url Url */
             $url = $this->data["status"] ? $param->getLink("forward_url") : ($param->exists("return_url") ? $param->getLink("return_url") : new \Url($default_url));
@@ -18,7 +18,7 @@ class Response {
                     $url->addParameter($key, $value);
                 }
             }
-            \Server::redirect($url);
+            Router::redirect($url);
         } else {
             echo $this->jsonSerialize();
         }
