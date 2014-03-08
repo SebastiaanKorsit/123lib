@@ -6,7 +6,7 @@ require_once '123lib/system/SEOPage.php';
 class XMLSitemapPage extends Page {
      
     public function __construct($router) {
-        Page::__construct($router, '123sitemap.mustache');
+        Page::__construct($router, 'sitemap.xml.mustache');
     }
     
     private function getSEOPages() {
