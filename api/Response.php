@@ -20,7 +20,7 @@ class Response {
             }
             Router::redirect($url);
         } else {
-            echo $this->jsonSerialize();
+            return $this->jsonSerialize();
         }
     }
     
