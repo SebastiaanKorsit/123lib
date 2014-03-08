@@ -4,7 +4,7 @@ require_once '123lib/system/Url.php';
 
 class Router {
     private $map = array();
-    private $filesystemLoader = null;
+    private $filesystemLoader;
     
     public function __construct($host, $filesystemLoader) {
         Router::$host = $host;
