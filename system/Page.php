@@ -47,6 +47,6 @@ class Page {
 
     public function render($scope = array()) {
         
-        return Template::render(array_merge($this->scope, $scope));
+        return $this->template->render(array_merge($this->scope, $scope));
     }
 }

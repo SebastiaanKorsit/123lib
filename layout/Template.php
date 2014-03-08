@@ -15,18 +15,18 @@ class Template {
     private $partialsLoader;
     
     public function __construct($router, $view, $partials) {
+        
         $this->view = $view;
         $this->partials = $partials;
-        $this->loader = $router->getFilesystemLoader();
-        $this->partialsLoader = $router->getVariableFilesystemLoader();
+        $this->router = $router;
     }
     
     public function render($scope = array()) {
         
         $this->m = new Mustache_Engine(
             array(
-                'loader' => $this->loader,
-                'partials_loader' => $this->partialsLoader,
+                'loader' => $this->router->getFilesystemLoader(),
+                'partials_loader' => $this->router->getVariableFilesystemLoader(),
                 'partials' => $this->partials,
             )
         );
