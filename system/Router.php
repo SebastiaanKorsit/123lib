@@ -21,7 +21,7 @@ class Router {
         Router::$currentPage = $url;
         
         if (array_key_exists((string) $url, $this->map)) {
-            $page = $this->map[(string) $url]();
+            $page = $this->map[(string) $url]($this);
             $page->setLocation($url);
             
             return $page;
