@@ -73,11 +73,18 @@ class Product {
             $result = array();
 
             foreach ($data as $v) {
-                $p = new Product;
-
-                foreach ($v as $key => $value) {
-                    $p->{$key} = $value;
-                }
+                $p = new Product(
+                    $v['identifier'],
+                    $v['value'],
+                    $v['price'],
+                    $v['stock'],
+                    $v['color'],
+                    $v['brand'],
+                    $v['category'],
+                    $v['country'],
+                    $v['name'],
+                    $v['image']
+                );
 
                 array_push($result, $p);
             }
