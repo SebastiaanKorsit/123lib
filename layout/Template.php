@@ -10,12 +10,12 @@ class Template {
     private $m = null;
     private $view;
     private $partials;
-    private $fileloader;
+    private $filesystemloader;
     
-    public function __construct($fileloader, $view, $partials) {
+    public function __construct($filesystemloader, $view, $partials) {
         $this->view = $view;
         $this->partials = $partials;
-        $this->fileloader = $fileloader;
+        $this->filesystemloader = $filesystemloader;
     }
     
     public function render($scope = array()) {
@@ -26,8 +26,8 @@ class Template {
         
         $this->m = new Mustache_Engine(
             array(
-                'loader' => new ExtendedFilesystemLoader($baseDirs),
-                'partials_loader' => $this->fileloader,
+                'loader' => $this->filesystemloader,
+                'partials_loader' => $this->filesystemloader,
                 'partials' => $this->partials,
             )
         );
