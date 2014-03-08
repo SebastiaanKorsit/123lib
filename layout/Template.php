@@ -11,19 +11,22 @@ class Template {
     private $view;
     private $partials;
     private $router;
+    private $loader;
+    private $partialsLoader;
     
     public function __construct($router, $view, $partials) {
         $this->view = $view;
         $this->partials = $partials;
-        $this->router = $router;
+        $this->loader = $this->router->getFilesystemLoader();
+        $this->partialsLoader = $this->router->getVariableFilesystemLoader();
     }
     
     public function render($scope = array()) {
         
         $this->m = new Mustache_Engine(
             array(
-                'loader' => $this->router->getFilesystemLoader(),
-                'partials_loader' => $this->router->getVariableFilesystemLoader(),
+                'loader' => $this->loader,
+                'partials_loader' => $this->partialsLoader,
                 'partials' => $this->partials,
             )
         );

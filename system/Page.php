@@ -14,6 +14,7 @@ class Page {
     protected $scope;
     
     public function __construct($router, $view, $partials = array()) {
+        
         $this->template = new Template($router, $view, $partials);
         $this->view = $view;
         $this->partials = $partials;
@@ -45,6 +46,7 @@ class Page {
     }
 
     public function render($scope = array()) {
+        
         return Template::render(array_merge($this->scope, $scope));
     }
 }
