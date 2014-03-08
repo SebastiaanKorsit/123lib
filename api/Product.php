@@ -74,16 +74,16 @@ class Product {
 
             foreach ($data as $v) {
                 $p = new Product(
-                    $v['identifier'],
-                    $v['value'],
-                    $v['price'],
-                    $v['stock'],
-                    $v['color'],
-                    $v['brand'],
-                    $v['category'],
-                    $v['country'],
-                    $v['name'],
-                    $v['image']
+                    $v->identifier,
+                    $v->value,
+                    $v->price,
+                    $v->stock,
+                    $v->color,
+                    $v->brand,
+                    $v->category,
+                    $v->country,
+                    $v->name,
+                    $v->image
                 );
 
                 array_push($result, $p);
