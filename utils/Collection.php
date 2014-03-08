@@ -9,7 +9,7 @@ class Collection {
     }
     
     public function get() {
-        return $data;
+        return $this->data;
     }
     
     public function limitBy($size) {
@@ -19,7 +19,12 @@ class Collection {
     public function findBy($property, $value) {
         
         foreach ($this->data as $item) {
-            if (is_string($item->{$property}) ? strtolower($item->{$property}) == strtolower($value) : $item->{$property} == $value) {
+            $match = $item->{$property};
+            if (is_callable($match)) {
+                $match = $match();
+            }
+            
+            if (is_string($match) ? strtolower($match) == strtolower($value) : $item->{$match} == $value) {
                 return $item;
             }
         }
@@ -31,8 +36,12 @@ class Collection {
         $result = array();
         
         foreach ($this->data as $item) {
-
-            if (is_string($item->{$property}) ? strtolower($item->{$property}) == strtolower($value) : $item->{$property} == $value) {
+            $match = $item->{$property};
+            if (is_callable($match)) {
+                $match = $match();
+            }
+            
+            if (is_string($match) ? strtolower($match) == strtolower($value) : $match == $value) {
                 array_push($result, $item);
             }
         }
