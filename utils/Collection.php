@@ -8,6 +8,10 @@ class Collection {
         $this->data = $data;
     }
     
+    public function get() {
+        return $data;
+    }
+    
     public function limitBy($size) {
         $this->data = array_slice($this->data, 0, $size);
     }
