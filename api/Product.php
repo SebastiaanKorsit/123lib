@@ -102,46 +102,4 @@ class Product {
         
         return Product::$allProducts;
     }
-    
-    public static function find($productID, $products = null) {
-        
-        if ($products == null) {
-            $products = Product::getAll();
-        }
-        
-        foreach ($products as $product) {
-            if ($product->identifier == $productID) {
-                return $product;
-            }
-        }
-        
-        return null;
-    }
-    
-    public static function limitBy($size, $products = null) {
-        if ($products == null) {
-            $products = Product::getAll();
-        }
-        
-        return array_slice($products, 0, $size);
-    }
-    
-    public static function filterBy($property, $value, $products = null)
-    {
-        if ($products == null) {
-            $products = Product::getAll();
-        }
-        
-        $result = array();
-        
-        foreach ($products as $product) {
-
-            if (is_string($product->{$property}) ? strtolower($product->{$property}) == strtolower($value) : $product->{$property} == $value) {
-                array_push($result, $product);
-            }
-        }
-        
-        return $result;
-    }
-    
 } 
