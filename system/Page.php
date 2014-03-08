@@ -13,6 +13,7 @@ class Page {
     protected $name;
     protected $scope;
     
+    /* @var $router Router */
     protected $router;
     
     public function __construct($router, $view, $partials = array()) {

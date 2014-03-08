@@ -26,7 +26,7 @@ class XMLSitemapPage extends Page {
     }
     
     public function render($scope = array()) {
-        Page::render(array_merge(array(
+        return Page::render(array_merge(array(
             'pages' => $this->getSEOPages(),
         ), $scope));
     }
