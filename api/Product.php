@@ -27,7 +27,15 @@ class Product {
     }
     
     public function getPrice() {
-        return '&euro;'.floor($this->price).'<sup>'.(100 * ($this->price - floor($this->price))).'</sup>';
+        return $this->price;
+    }
+    
+    public function getPriceAsInteger() {
+        return floor($this->price);
+    }
+    
+    public function getPriceDecimals() {
+        return 100 * ($this->price - floor($this->price));
     }
     
     public function getStock() {
