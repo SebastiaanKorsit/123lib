@@ -1,7 +1,6 @@
 <?php
 
 require_once '123lib/layout/mustache/autoload.php';
-
 require_once '123lib/layout/mustache/VariableFilesystemLoader.php';
 require_once '123lib/layout/mustache/ExtendedFilesystemLoader.php';
 

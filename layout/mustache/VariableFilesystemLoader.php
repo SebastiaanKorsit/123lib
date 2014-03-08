@@ -1,7 +1,6 @@
 <?php
 
-require_once 'autoload.php';
-
+require_once '123lib/layout/mustache/autoload.php';
 require_once '123lib/layout/mustache/ExtendedFilesystemLoader.php';
 
 class VariableFilesystemLoader extends ExtendedFilesystemLoader implements Mustache_Loader_MutableLoader
