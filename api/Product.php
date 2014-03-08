@@ -19,7 +19,7 @@ class Product {
     }
     
     public function getIdentifier() {
-        return $this->id;
+        return $this->identifier;
     }
     
     public function getValue() {
