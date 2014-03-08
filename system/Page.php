@@ -14,7 +14,7 @@ class Page {
     protected $scope;
     
     public function __construct($router, $view, $partials = array()) {
-        $this->template = new Template($router->getFilesystemLoader(), $view, $partials);
+        $this->template = new Template($router, $view, $partials);
         $this->view = $view;
         $this->partials = $partials;
         
