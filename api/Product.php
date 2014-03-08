@@ -23,7 +23,7 @@ class Product {
     }
     
     public function getValue() {
-        return '&euro;'.$this->value;
+        return $this->value;
     }
     
     public function getPrice() {
@@ -118,7 +118,15 @@ class Product {
         return null;
     }
     
-    public static function filter($property, $value, $products = null)
+    public static function limitBy($size, $products = null) {
+        if ($products == null) {
+            $products = Product::getAll();
+        }
+        
+        return array_slice($products, 0, $size);
+    }
+    
+    public static function filterBy($property, $value, $products = null)
     {
         if ($products == null) {
             $products = Product::getAll();
