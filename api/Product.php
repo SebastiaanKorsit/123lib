@@ -57,6 +57,9 @@ class Product {
         return $this->image;
     }
     
+    public function isAvailable() {
+        return $this->getStock() > 0;
+    }
     // Static:
     private static $allProducts;
     public static function getAll() {
