@@ -11,10 +11,10 @@ class RobotsPage extends Page {
         ));
     }
     
-    private function getHiddenPages($router) {
+    private function getHiddenPages() {
         $result = array();
         
-        $paths = $router->getPaths();
+        $paths = $this->router->getPaths();
         
         
         foreach ($paths as $path) {
@@ -23,7 +23,7 @@ class RobotsPage extends Page {
                 continue;
             }
             
-            $page = $router->resolve($path);
+            $page = $this->router->resolve($path);
             
             if (!($page instanceof SEOPage)) {
                 array_push($result, $page);
