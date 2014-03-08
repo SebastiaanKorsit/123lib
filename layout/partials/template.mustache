@@ -108,12 +108,12 @@
         </footer>
         
         <script>
-            (function (urls) {
-                for (var url in urls) {
+            (function (sources) {
+                for (var i = 0; i < sources.length; i++) {
                     var head = document.getElementsByTagName('head')[0];
                     var script = document.createElement('script');
                     script.type = 'text/javascript';
-                    script.src = url;
+                    script.src = sources[i];
                     head.appendChild(script);
                 }
             })([
