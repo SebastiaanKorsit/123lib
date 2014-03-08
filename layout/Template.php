@@ -17,8 +17,8 @@ class Template {
     public function __construct($router, $view, $partials) {
         $this->view = $view;
         $this->partials = $partials;
-        $this->loader = $this->router->getFilesystemLoader();
-        $this->partialsLoader = $this->router->getVariableFilesystemLoader();
+        $this->loader = $router->getFilesystemLoader();
+        $this->partialsLoader = $router->getVariableFilesystemLoader();
     }
     
     public function render($scope = array()) {
