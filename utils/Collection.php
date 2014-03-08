@@ -19,10 +19,7 @@ class Collection {
     public function findBy($property, $value) {
         
         foreach ($this->data as $item) {
-            $match = $item->{$property};
-            if (is_callable($match)) {
-                $match = $match();
-            }
+            $match = $item->{$property}();
             
             if (is_string($match) ? strtolower($match) == strtolower($value) : $item->{$match} == $value) {
                 return $item;
@@ -36,10 +33,7 @@ class Collection {
         $result = array();
         
         foreach ($this->data as $item) {
-            $match = $item->{$property};
-            if (is_callable($match)) {
-                $match = $match();
-            }
+            $match = $item->{$property}();
             
             if (is_string($match) ? strtolower($match) == strtolower($value) : $match == $value) {
                 array_push($result, $item);
