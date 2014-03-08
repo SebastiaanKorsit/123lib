@@ -3,8 +3,61 @@
 require_once '123lib/api/Request.php';
 
 class Product {
-    public $id, $value, $price, $stock, $color, $brand, $country, $name, $image;
+    private $identifier, $value, $price, $stock, $color, $brand, $category, $country, $name, $image;
     
+    public function __construct($identifier, $value, $price, $stock, $color, $brand, $category, $country, $name, $image) {
+        $this->identifier = $identifier;
+        $this->value = $value;
+        $this->price = $price;
+        $this->stock = $stock;
+        $this->color = $color;
+        $this->brand = $brand;
+        $this->category = $category;
+        $this->country = $country;
+        $this->name = $name;
+        $this->image = $image;
+    }
+    
+    public function getIdentifier() {
+        return $this->id;
+    }
+    
+    public function getValue() {
+        return '&euro;'.$this->value;
+    }
+    
+    public function getPrice() {
+        return '&euro;'.floor($this->price).'<sup>'.(100 * ($this->price - floor($this->price))).'</sup>';
+    }
+    
+    public function getStock() {
+        return $this->stock;
+    }
+    
+    public function getColor() {
+        return $this->color;
+    }
+    public function getBrand() {
+        return $this->brand;
+    }
+    
+    public function getCategory() {
+        return $this->category;
+    }
+    
+    public function getCountry() {
+        return $this->country;
+    }
+    
+    public function getName() {
+        return $this->name;
+    }
+    
+    public function getImage() {
+        return $this->image;
+    }
+    
+    // Static:
     private static $allProducts;
     public static function getAll() {
         
