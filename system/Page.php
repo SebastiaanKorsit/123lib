@@ -13,8 +13,8 @@ class Page {
     protected $name;
     protected $scope;
     
-    public function __construct($view, $partials = array()) {
-        $this->template = new Template($view, $partials);
+    public function __construct($router, $view, $partials = array()) {
+        $this->template = new Template($router->getFilesystemLoader(), $view, $partials);
         $this->view = $view;
         $this->partials = $partials;
         

@@ -92,7 +92,7 @@ class ExtendedFilesystemLoader implements Mustache_Loader
      *
      * @return string Template file name
      */
-    protected function getFileName($name)
+    public function getFileName($name)
     {
         foreach ($this->baseDirs as $baseDir) {
             $fileName = $baseDir . '/' . $name;

@@ -5,17 +5,18 @@ require_once '123lib/system/Page.php';
 class SEOPage extends Page {    
     private $depencies;
     
-    public function __construct($view, $partials = array()) {
-        Page::__construct($view, $partials);
+    public function __construct($router, $view, $partials = array()) {
+        Page::__construct($router, $view, $partials);
         
         /* Manage depencies: */
         
         $this->depencies = array();
         
-        $this->addDepency(dirname(__FILE__).'/../../views/'.$this->view);
         
-        foreach ($this->partials as $fname) {
-            $this->addDepency(dirname(__FILE__).'/../../views/'.$fname);
+        $this->addDepency($router->getFilesystemLoader()->getFileName($this->view));
+        
+        foreach ($this->partials as $p) {
+            $this->addDepency($router->getFilesystemLoader()->getFileName($p));
         }
     }
     

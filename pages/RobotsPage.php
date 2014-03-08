@@ -6,7 +6,7 @@ require_once '123lib/system/SEOPage.php';
 class RobotsPage extends Page {
     
     public function __construct($router) {
-        Page::__construct('123robots.mustache');
+        Page::__construct($router, '123robots.mustache');
                 
         $this->expose(array(
             'pages' => $this->getHiddenPages($router),

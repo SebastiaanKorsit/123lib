@@ -6,7 +6,7 @@ require_once '123lib/system/SEOPage.php';
 class SitemapPage extends Page {
     
     public function __construct($router) {
-        Page::__construct('123sitemap.mustache');
+        Page::__construct($router, '123sitemap.mustache');
                 
         $this->expose(array(
             'pages' => $this->getSEOPages($router),
