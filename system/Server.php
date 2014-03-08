@@ -10,7 +10,7 @@ class Server {
     
     public function request($path, $scope) {
         
-        $page = $this->router->resolve(new Url($path));
+        $page = $this->router->resolve($path);
 
         if ($page != null) { 
 
