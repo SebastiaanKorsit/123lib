@@ -22,7 +22,7 @@ class Template {
         
         $this->m = new Mustache_Engine(
             array(
-                'loader' => $this->router->getFilesystemloader(),
+                'loader' => $this->router->getFilesystemLoader(),
                 'partials_loader' => $this->router->getVariableFilesystemLoader(),
                 'partials' => $this->partials,
             )
