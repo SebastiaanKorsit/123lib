@@ -4,11 +4,11 @@ require_once '123lib/system/Url.php';
 
 class Router {
     private $map = array();
-    private $fileloader = null;
+    private $filesystemLoader = null;
     
-    public function __construct($host, $fileloader) {
+    public function __construct($host, $filesystemLoader) {
         Router::$host = $host;
-        $this->fileloader = $fileloader;
+        $this->filesystemLoader = $filesystemLoader;
     }
     
     public function when($url, $pageCallback) {
@@ -34,6 +34,10 @@ class Router {
     
     public function otherwise() {
         exit();
+    }
+    
+    public function getFilesystemLoader() {
+        return $this->filesystemLoader;
     }
     
     /*
