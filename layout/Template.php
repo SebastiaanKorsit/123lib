@@ -10,8 +10,6 @@ class Template {
     private $view;
     private $partials;
     private $router;
-    private $loader;
-    private $partialsLoader;
     
     public function __construct($router, $view, $partials) {
         

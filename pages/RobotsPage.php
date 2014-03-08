@@ -6,10 +6,8 @@ require_once '123lib/system/SEOPage.php';
 class RobotsPage extends Page {
     
     public function __construct($router) {
-        Page::__construct($router, '123robots.mustache');
-                
-        $this->expose(array(
-            'pages' => $this->getHiddenPages($router),
+        Page::__construct($router, '123robots.mustache', array(
+            'partial_robots' => 'robots.mustache',
         ));
     }
     
@@ -33,5 +31,11 @@ class RobotsPage extends Page {
         }
         
         return $result;
+    }
+    
+    public function render($scope = array()) {
+        Page::render(array_merge(array(
+            'pages' => $this->getHiddenPages(),
+        ), $scope));
     }
 }

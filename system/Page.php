@@ -13,15 +13,17 @@ class Page {
     protected $name;
     protected $scope;
     
+    protected $router;
+    
     public function __construct($router, $view, $partials = array()) {
-        
+        $this->router = $router;
         $this->template = new Template($router, $view, $partials);
         $this->view = $view;
         $this->partials = $partials;
         
         $this->scope = array(
             'page' => $this,
-            'host' => Router::getHost(),
+            'host' => $router->getHost(),
         );
     }
     
