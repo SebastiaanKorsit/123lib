@@ -20,7 +20,11 @@ class Server {
 
             header('HTTP/1.0 404 Not Found');
 
-            echo $this->router->otherwise()->render($scope);
+            echo $this->router->otherwise()->render(array_merge($scope, array(
+                referer => array(
+                    getLocation => $_SERVER['HTTP_REFERER'],
+                )
+            )));
         }
     }
 }
