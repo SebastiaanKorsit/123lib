@@ -25,11 +25,11 @@ class Product {
         
         switch (strtolower($this->getBrand())) {
             case "itunes":
-                return "//123ituneskaart.nl/itunes-giftcard-" . $this->getValue() . "-euro";
+                return "//123ituneskaart.nl/itunes-code-" . $this->getValue() . "-euro";
             case "spotify":
-                return "//123spotifygiftcard.nl/spotify-giftcard-" . $this->getValue() . "-euro";
+                return "//123spotifygiftcard.nl/spotify-code-" . $this->getValue() . "-euro";
             case "playstore":
-                return "123googleplaygiftcard.nl/playstore-giftcard-" . $this->getValue() . "-euro";
+                return "123googleplaygiftcard.nl/playstore-code-" . $this->getValue() . "-euro";
             default:
                 return "/404";
         }
