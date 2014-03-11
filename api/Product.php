@@ -29,7 +29,7 @@ class Product {
             case "spotify":
                 return "//123spotifygiftcard.nl/spotify-code-" . $this->getValue() . "-euro";
             case "playstore":
-                return "123googleplaygiftcard.nl/playstore-code-" . $this->getValue() . "-euro";
+                return "//123googleplaygiftcard.nl/playstore-code-" . $this->getValue() . "-euro";
             default:
                 return "/404";
         }
