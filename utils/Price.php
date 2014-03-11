@@ -17,6 +17,6 @@ class Price {
     }
     
     public function getData() {
-        return $data;
+        return $this->data;
     }
 }
