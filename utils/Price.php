@@ -19,4 +19,8 @@ class Price {
     public function getData() {
         return $this->data;
     }
+    
+    public function getPrice() {
+        return new Price($this->count * $this->product->getPrice()->getData());
+    }
 }
