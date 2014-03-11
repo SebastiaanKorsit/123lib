@@ -23,7 +23,7 @@ class Product {
         // Experimental!
         // Bether get this from a database for potential scaling...
         
-        switch ($this->getBrand()) {
+        switch (strtolower($this->getBrand())) {
             case "itunes":
                 return "//123ituneskaart.nl/itunes-giftcard-" . $this->getValue();
             case "spotify":
