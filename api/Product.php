@@ -1,6 +1,7 @@
 <?php
 
 require_once '123lib/api/Request.php';
+require_once '123lib/utils/Price.php';
 
 class Product {
     private $identifier, $value, $price, $stock, $color, $brand, $category, $country, $name, $image;
@@ -27,15 +28,7 @@ class Product {
     }
     
     public function getPrice() {
-        return $this->price;
-    }
-    
-    public function getPriceAsInteger() {
-        return floor($this->price);
-    }
-    
-    public function getPriceDecimals() {
-        return 100 * ($this->price - floor($this->price));
+        return new Price($this->price);
     }
     
     public function getStock() {

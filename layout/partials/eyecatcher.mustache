@@ -8,22 +8,22 @@
         <div class='grid grid-responsive'>
             {{# products }}
             <div class='col col-3'>
-                <div class='product product-card'>
+                <article class='product product-card'>
                     
-                    <div class='cover' style='background-image: url("{{ getImage }}");'></div>
+                    <a href='/{{ getIdentifier }}' class='cover' style='background-image: url("{{ getImage }}");'></a>
                     <div class='price' style='background-color: {{ getColor }}'>
-                        &euro;{{ getPriceAsInteger }}<sup>{{ getPriceDecimals }}</sup>
+                        &euro;{{ getPrice.getUpper }}<sup>{{ getPrice.getLower }}</sup>
                     </div>
                     <h2>
                         <a href='/{{ getIdentifier }}'>{{ getName }}</a>
                     </h2>
                     {{# isAvailable }}
-                        <button class="button button-orange">Bekijken</button>
+                        <button class="button button-orange" onclick='window.location = "/{{ getIdentifier }}";'>Bekijken</button>
                     {{/ isAvailable }}
                     {{^ isAvailable }}
                         <span class='font font-color-red'>Niet op voorraad</span>
                     {{/ isAvailable }}
-                </div>
+                </article>
             </div>
             {{/ products }}
         </div>
