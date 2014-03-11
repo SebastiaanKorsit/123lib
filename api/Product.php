@@ -19,6 +19,23 @@ class Product {
         $this->image = $image;
     }
     
+    public function getLocation() {
+        // Experimental!
+        // Bether get this from a database for potential scaling...
+        
+        switch ($this->getBrand()) {
+            case "itunes":
+                return "//123ituneskaart.nl/itunes-giftcard-" . $this->getValue();
+            case "spotify":
+                return "//123spotifygiftcard.nl/spotify-giftcard-" . $this->getValue();
+            case "playstore":
+                return "123googleplaygiftcard.nl/playstore-giftcard-" . $this->getValue();
+            default:
+                return "/404";
+        }
+    }
+    
+    
     public function getIdentifier() {
         return $this->identifier;
     }
@@ -51,7 +68,11 @@ class Product {
     }
     
     public function getName() {
-        return $this->name;
+        // Bether get this from a database:
+        
+        return $this->getBrand() . " giftcard " . $this->getValue() . " euro";
+        
+        //return $this->name;
     }
     
     public function getImage() {

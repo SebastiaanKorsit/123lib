@@ -10,15 +10,15 @@
             <div class='col col-3'>
                 <article class='product product-card'>
                     
-                    <a href='/{{ getIdentifier }}' class='cover' style='background-image: url("{{ getImage }}");'></a>
+                    <a href='{{ getLocation }}' class='cover' style='background-image: url("{{ getImage }}");'></a>
                     <div class='price' style='background-color: {{ getColor }}'>
                         &euro;{{ getPrice.getUpper }}<sup>{{ getPrice.getLower }}</sup>
                     </div>
                     <h2>
-                        <a href='/{{ getIdentifier }}'>{{ getName }}</a>
+                        <a href='{{ getLocation }}'>{{ getName }}</a>
                     </h2>
                     {{# isAvailable }}
-                        <button class="button button-orange" onclick='window.location = "/{{ getIdentifier }}";'>Bekijken</button>
+                        <button class="button button-orange" onclick='window.location = "{{ getLocation }}";'>Bekijken</button>
                     {{/ isAvailable }}
                     {{^ isAvailable }}
                         <span class='font font-color-red'>Niet op voorraad</span>
