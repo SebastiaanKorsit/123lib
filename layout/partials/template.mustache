@@ -40,7 +40,7 @@
                     <div class='group group-size-large'>
                         <a href='http://123giftcard.nl/winkelwagen' class='button button-orange'>Winkelwagen</a>
                         <span class='well well-color-white'>
-                            {{ cart.count }}
+                            {{ cart.getCount }}
                         </span>
                     </div>
                     
@@ -114,7 +114,6 @@
         </footer>
         
         <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js'></script>
-        <script src='//123giftcard.nl/template/js/jquery.stepper.min.js'></script>
         <script>
             (function (sources) {
                 for (var i = 0; i < sources.length; i++) {
@@ -125,7 +124,7 @@
                     head.appendChild(script);
                 }
             })([
-                '//123giftcard.nl/template/js/main.js'
+                '//123giftcard.nl/template/js/combined.js'
             ]);
         </script>
     </body>
