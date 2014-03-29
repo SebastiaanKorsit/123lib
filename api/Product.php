@@ -103,7 +103,6 @@ class Product {
                     $v->color,
                     $v->brand,
                     $v->categories,
-                    $v->types,
                     $v->country,
                     $v->name,
                     $v->image
