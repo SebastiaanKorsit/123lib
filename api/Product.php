@@ -4,9 +4,9 @@ require_once '123lib/api/Request.php';
 require_once '123lib/utils/Price.php';
 
 class Product {
-    private $identifier, $value, $price, $stock, $color, $brand, $categories, $types, $country, $name, $image;
+    private $identifier, $value, $price, $stock, $color, $brand, $categories, $country, $name, $image;
     
-    public function __construct($identifier, $value, $price, $stock, $color, $brand, $categories, $types, $country, $name, $image) {
+    public function __construct($identifier, $value, $price, $stock, $color, $brand, $categories, $country, $name, $image) {
         $this->identifier = $identifier;
         $this->value = $value;
         $this->price = $price;
@@ -14,7 +14,6 @@ class Product {
         $this->color = $color;
         $this->brand = $brand;
         $this->categories = $categories;
-        $this->types = $types;
         $this->country = $country;
         $this->name = $name;
         $this->image = $image;
@@ -62,10 +61,6 @@ class Product {
     
     public function getCategories() {
         return $this->categories;
-    }
-    
-    public function getTypes() {
-        return $this->types;
     }
     
     public function getCountry() {

@@ -29,6 +29,18 @@ class Collection {
         return null;
     }
     
+    public function filter($predicate) {
+        $result = array();
+        
+        foreach ($this->data as $item) {
+            if ($predicate($item)) {
+                array_push($result, $item);
+            }
+        }
+        
+        $this->data = $result;
+    }
+    
     public function filterBy($property, $value) {
         $result = array();
         
