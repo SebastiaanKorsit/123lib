@@ -32,6 +32,8 @@ class RobotsPage extends Page {
     }
     
     public function render($scope = array()) {
+        header('Content-Type: text/plain');
+        
         return Page::render(array_merge(array(
             'pages' => $this->getHiddenPages(),
         ), $scope));
