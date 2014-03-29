@@ -75,6 +75,14 @@ class SEOPage extends Page {
     public function getPriority() {
         return .5;
     }
+    
+    public function getIndex() {
+        return true;
+    }
+    
+    public function getFollow() {
+        return true;
+    }
 }
 
 
