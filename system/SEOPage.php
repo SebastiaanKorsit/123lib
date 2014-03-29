@@ -44,11 +44,14 @@ class SEOPage extends Page {
     }
 
     private function getPreviousChangeFrequency() {
-        return ModificationHistory::get('CF:'.$this->getLocation());
+        $temp = ModificationHistory::get('CF:'.$this->getLocation());
+    
+        return $temp == null ? 'daily' : $temp;
     }
     
     private function getPreviousLastModified() {
-        return ModificationHistory::get('LM:'.$this->getLocation());
+        $temp = ModificationHistory::get('LM:'.$this->getLocation());
+        return $temp == null ? getLastModified() : $temp;
     }
     
     public function getLastModified() {
