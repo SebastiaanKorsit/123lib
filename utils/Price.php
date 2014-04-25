@@ -12,7 +12,7 @@ class Price {
     }
     
     public function getLower() {
-        $lower = (string) ceil(($this->data - floor($this->data)) * 100);
+        $lower = (string) round(($this->data - floor($this->data)) * 100);
         return strlen($lower) == 1 ? "0" . $lower : $lower;
     }
     
