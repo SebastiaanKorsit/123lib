@@ -161,5 +161,10 @@ class Filter implements ArrayAccess {
     function isArray($key) {
         return $this->exists($key) && is_array($this->data[$key]);
     }
+    
+    
+    function getSafeString($key, $default = '') {
+        return mysql_escape_string($this->getValue($key, $default));
+    }
 }
 ?>
