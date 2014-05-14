@@ -6,24 +6,6 @@
         <link rel="stylesheet" href="//123giftcard.nl/template/css/stylesheet.css" type="text/css" />
     </head>
     <body>
-        <nav class="menu">
-            <div class="container">
-                <div class='grid grid-responsive'>
-                    <!--<div class="col col-2">
-                        {{^ hideLogo }}
-                        <a href='//123giftcard.nl'><img src="//123giftcard.nl/template/png/logo-large.png" id='logo' alt="123code logo" width='150' height='150'></a>
-                        {{/ hideLogo }}
-                    </div>!-->
-                    <div class='col col-10 font-align-center'>
-                        {{# menu }}
-                        <a href="{{ getLocation }}" class="{{ isActive }}">
-                            {{ getName }}
-                        </a>
-                        {{/ menu }}
-                    </div>
-                </div>
-            </div>
-        </nav>
         <header class="container">
             <div class='grid grid-responsive'>
                 <div class="col col-2" style="padding: 0;">
@@ -47,19 +29,28 @@
                     
                 </div>
             </div>
-            <ol class='breadcrumb'>
-                <li>
-                    <a href='//123giftcard.nl'>
-                        <i class='icon icon-home icon-align-baseline'></i>
-                    </a>
-                </li>
-                {{# breadcrumb }}
-                <li>
-                    <a href='{{ getLocation }}'>{{ getName }}</a>
-                </li>
-                {{/ breadcrumb }}
-            </ol>
+            
         </header>
+        
+        <nav class="menu container" style="margin-bottom: 30px;">
+            <div class="">
+                <div class='grid grid-responsive'>
+                    <!--<div class="col col-2">
+                        {{^ hideLogo }}
+                        <a href='//123giftcard.nl'><img src="//123giftcard.nl/template/png/logo-large.png" id='logo' alt="123code logo" width='150' height='150'></a>
+                        {{/ hideLogo }}
+                    </div>!-->
+                    <div class='col col-10 font-align-center'>
+                        {{# menu }}
+                        <a href="{{ getLocation }}" class="{{ isActive }}">
+                            {{ getName }}
+                        </a>
+                        {{/ menu }}
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
         <!-- start partial entry -->
         <div id="entry">
             {{> partial_entry }}
