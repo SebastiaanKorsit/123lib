@@ -12,22 +12,11 @@
                     {{> partial_logo }}
                 </div>
 
-                <div class='col col-8 font-align-center' style="padding: 0;">
-                    <a href="//123giftcard.nl/levering" class="font font-color-dark">Alle producten uit ons assortiment worden <span class="font font-weight-bold font-color-dark">direct</span> geleverd</a>
+                <div class='col col-10 font-align-center' style="padding: 0; text-align: right;">
+                    <a href="//123giftcard.nl/levering" class="font font-color-light" style="color: #777;">Alle producten uit ons assortiment worden <span class="font font-weight-bold font-color-dark">direct</span> geleverd</a>
                 </div>
 
-                <div class='col col-2 font-align-center'>
-                    <div class='group group-size-large'>
-                        <a href='//123giftcard.nl/winkelwagen' class='button button-orange'>Winkelwagen</a>
-                        <span class='well well-color-white' id='cart-count'>
-                            {{ cart.getTotalCount }}
-                            {{^ cart.getTotalCount }}
-                            &nbsp;
-                            {{/ cart.getTotalCount }}
-                        </span>
-                    </div>
-                    
-                </div>
+                
             </div>
             
         </header>
@@ -46,6 +35,19 @@
                             {{ getName }}
                         </a>
                         {{/ menu }}
+                    </div>
+                    
+                    <div class='col col-2 font-align-center'>
+                        <div class='group group-size-large'>
+                            <a href='//123giftcard.nl/winkelwagen' class='button button-orange'>Winkelwagen</a>
+                            <span class='well well-color-white' id='cart-count'>
+                                {{ cart.getTotalCount }}
+                                {{^ cart.getTotalCount }}
+                                &nbsp;
+                                {{/ cart.getTotalCount }}
+                            </span>
+                        </div>
+
                     </div>
                 </div>
             </div>
