@@ -38,16 +38,16 @@
                     </div>
                     
                     <div class='col col-2 font-align-center'>
-                        <div class='group group-size-large'>
-                            <a href='//123giftcard.nl/winkelwagen' class='button button-orange'>Winkelwagen</a>
-                            <span class='well well-color-white' id='cart-count'>
+                        
+                        <a href='//123giftcard.nl/winkelwagen' class='item' style='width: 100%; border-left: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset; border-radius: 0px;'>
+                            <span style='vertical-align: middle;'>Winkelwagen</span>
+                            <span class='well well-color-white' style='margin-left: 10px; vertical-align: middle;' id='cart-count'>
                                 {{ cart.getTotalCount }}
                                 {{^ cart.getTotalCount }}
                                 &nbsp;
                                 {{/ cart.getTotalCount }}
                             </span>
-                        </div>
-
+                        </a>
                     </div>
                 </div>
             </div>
