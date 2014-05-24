@@ -4,9 +4,9 @@ require_once '123lib/api/Request.php';
 require_once '123lib/utils/Price.php';
 
 class Product {
-    private $identifier, $value, $price, $stock, $color, $brand, $categories, $country, $name, $image;
+    private $identifier, $value, $price, $stock, $color, $brand, $categories, $country, $name, $image, $tax;
     
-    public function __construct($identifier, $value, $price, $stock, $color, $brand, $categories, $country, $name, $image) {
+    public function __construct($identifier, $value, $price, $stock, $color, $brand, $categories, $country, $name, $image, $tax) {
         $this->identifier = $identifier;
         $this->value = $value;
         $this->price = $price;
@@ -17,6 +17,7 @@ class Product {
         $this->country = $country;
         $this->name = $name;
         $this->image = $image;
+        $this->tax = $tax;
     }
     
     public function getLocation() {
@@ -25,23 +26,35 @@ class Product {
         
         switch (strtolower($this->getBrand())) {
             case "itunes":
-                return "//123ituneskaart.nl/itunes-kaart-" . $this->getValue() . "-euro";
+                return "//123ituneskaart.nl/itunes-kaart-" . $this->getValue()->getData() . "-euro";
             case "spotify":
-                return "//123spotifygiftcard.nl/spotify-giftcard-" . $this->getValue() . "-euro";
+                return "//123spotifygiftcard.nl/spotify-giftcard-" . $this->getValue()->getData() . "-euro";
             case "playstore":
-                return "//123googleplaygiftcard.nl/playstore-giftcard-" . $this->getValue() . "-euro";
+                return "//123googleplaygiftcard.nl/playstore-giftcard-" . $this->getValue()->getData() . "-euro";
             default:
                 return "/404";
         }
     }
     
+    public function getRedeemLocation() {
+        switch (strtolower($this->getBrand())) {
+            case "itunes":
+                return "//123ituneskaart.nl/verzilveren";
+            case "spotify":
+                return "//123spotifygiftcard.nl/verzilveren";
+            case "playstore":
+                return "//123googleplaygiftcard.nl/verzilveren";
+            default:
+                return "/404";
+        }
+    }
     
     public function getIdentifier() {
         return $this->identifier;
     }
     
     public function getValue() {
-        return $this->value;
+        return new Price($this->value);
     }
     
     public function getPrice() {
@@ -70,7 +83,7 @@ class Product {
     public function getName() {
         // Bether get this from a database:
         
-        return $this->getBrand() . " giftcard " . $this->getValue() . " euro";
+        return $this->getBrand() . " giftcard " . $this->getValue()->getData() . " euro";
         
         //return $this->name;
     }
@@ -82,6 +95,15 @@ class Product {
     public function isAvailable() {
         return $this->getStock() > 0;
     }
+    
+    public function getTaxPercentage() {
+        return $this->tax;
+    }
+    
+    public function getTaxAmount() {
+        return new Price($this->value * $this->tax/100);
+    }
+    
     // Static:
     private static $allProducts;
     public static function getAll() {
@@ -105,7 +127,8 @@ class Product {
                     $v->categories,
                     $v->country,
                     $v->name,
-                    $v->image
+                    $v->image,
+                    $v->tax
                 );
 
                 array_push($result, $p);

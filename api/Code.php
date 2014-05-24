@@ -31,6 +31,8 @@ class Code {
 
             $result = array();
 
+            
+            
             $products = new Collection(Product::getAll());
             
             foreach ($data as $v) {
