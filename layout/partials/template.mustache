@@ -144,7 +144,12 @@
             
             ga('create', 'UA-50002306-1', 'auto', {'allowLinker': true});
             ga('require', 'linker');
-            ga('linker:autoLink', {{ otherDomainArray }});
+            var otherDomains = [];
+            {{# otherDomainArray }}
+                otherDomains.push({{ otherDomainArray }});
+            {{/ otherDomainArray }}
+            
+            ga('linker:autoLink', otherDomains);
             ga('send', 'pageview');
         </script>
     </body>
