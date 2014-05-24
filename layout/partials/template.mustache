@@ -146,7 +146,7 @@
             ga('require', 'linker');
             var otherDomains = [];
             {{# otherDomainArray }}
-                otherDomains.push({{ otherDomainArray }});
+                otherDomains.push('{{ . }}');
             {{/ otherDomainArray }}
             
             ga('linker:autoLink', otherDomains);
