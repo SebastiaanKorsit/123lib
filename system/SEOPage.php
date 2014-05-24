@@ -3,7 +3,7 @@
 require_once '123lib/system/Page.php';
 
 class SEOPage extends Page {    
-    private $depencies;
+    private $depencies, $priority;
     
     public function __construct($router, $view, $partials = array()) {
         Page::__construct($router, $view, $partials);
@@ -72,8 +72,12 @@ class SEOPage extends Page {
         return date('c', $lastTimestamp);
     }
 
+    public function setPriority($priority) {
+        $this->priority = $priority;
+    }
+    
     public function getPriority() {
-        return .5;
+        return $this->priority;
     }
     
     public function getIndex() {
