@@ -3,7 +3,7 @@
     <head>
         {{> partial_head }}
         
-        <link rel="stylesheet" href="//123giftcard.nl/template/css/stylesheet.css" type="text/css" />
+        <link rel="stylesheet" href="{{ provider.getLocation }}css/stylesheet.css" type="text/css" />
     </head>
     <body>
         <header class="container">
@@ -24,11 +24,6 @@
         <nav class="menu container">
             <div class="">
                 <div class='grid grid-responsive'>
-                    <!--<div class="col col-2">
-                        {{^ hideLogo }}
-                        <a href='//123giftcard.nl'><img src="//123giftcard.nl/template/png/logo-large.png" id='logo' alt="123code logo" width='150' height='150'></a>
-                        {{/ hideLogo }}
-                    </div>!-->
                     <div class='col col-10 font-align-center'>
                         {{# menu }}
                         <a href="{{ getLocation }}" class="item {{ isActive }}">
@@ -110,7 +105,12 @@
                     </ul>
                 </div>
                 <div class='col col-3'>
-                    &nbsp;
+                    <h3>Affiliates</h3>
+                    <ul class='list'>
+                        <li><img src="{{ provider.getLocation }}favicon.ico" alt="itunes kaart icon" /><a href='//123giftcard.nl/klantenservice'><b>itunes</b>kaart</a></li>
+                        <li><img src="{{ provider.getLocation }}favicon.ico" alt="spotify giftcard icon" /><a href='//123giftcard.nl/klantenservice'><b>spotify</b>giftcard</a></li>
+                        <li><img src="{{ provider.getLocation }}favicon.ico" alt="google play giftcard icon" /><a href='//123giftcard.nl/klantenservice'><b>googleplay</b>giftcard</a></li>
+                    </ul>
                 </div>
             </div>
             <div id='copyright'>
@@ -131,7 +131,7 @@
                     head.appendChild(script);
                 }
             })([
-                '//123giftcard.nl/template/js/combined.js'
+                '{{ provider.getLocation }}js/combined.js'
             ]);
         </script>
         <script>
