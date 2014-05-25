@@ -13,7 +13,7 @@ class Server {
         $page = $this->router->resolve($path);
 
         if ($page != null) { 
-
+            header('Content-type: text/html; charset=utf-8');
             echo $page->render($scope);
 
         } else {
