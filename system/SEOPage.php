@@ -3,7 +3,7 @@
 require_once '123lib/system/Page.php';
 
 class SEOPage extends Page {    
-    private $depencies, $priority;
+    private $depencies, $priority = 0.5;
     
     public function __construct($router, $view, $partials = array()) {
         Page::__construct($router, $view, $partials);
