@@ -22,7 +22,7 @@ class Request {
         //curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         //curl_setopt($ch, CURLOPT_HTTPGET, 1);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_TIMEOUT, '3');
+        curl_setopt($ch, CURLOPT_TIMEOUT, '5');
         curl_setopt($ch, CURLOPT_FRESH_CONNECT, $fresh);
         
         
@@ -33,7 +33,7 @@ class Request {
         if ($response->status) {
             return $response->data;
         } else {
-            throw new Exception('API Request error in "http://123giftcard.nl/api'.$this->path.'": '.$this->response->error);
+            throw new Exception('API Request error in "http://123giftcard.nl/api'.$this->path.'": '.json_encode($this->response));
         }
     }
 }
